@@ -10,7 +10,7 @@ This repository (`Karthik22296/.github`) hosts reusable GitHub Actions workflows
 Automated code review powered by `@google/generative-ai` and `pr-review-agent`. It analyzes PR diffs, detects stack conventions, checks against guidelines, and posts findings directly on pull requests.
 
 #### Usage in Client Repositories
-Create `.github/workflows/global-pr-review.yml` in your repository:
+Create `.github/workflows/code-review.yml` in your repository:
 
 ```yaml
 name: Global AI PR Review
