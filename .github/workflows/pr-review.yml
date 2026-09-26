@@ -8,6 +8,11 @@ on:
         required: false
         type: string
         default: 'gemini-3.8-flash'
+      ai-model-deep:
+        description: 'Gemini model to use for deep review'
+        required: false
+        type: string
+        default: 'gemini-3.8-flash'
     secrets:
       GEMINI_API_KEY:
         description: 'Gemini API key for generating AI reviews'
@@ -16,6 +21,7 @@ on:
 permissions:
   contents: read
   pull-requests: write
+  statuses: write
 
 jobs:
   review:
@@ -23,8 +29,10 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
+      statuses: write
     uses: Karthik22296/pr-review-agent/.github/workflows/pr-review.yml@main
     with:
       ai-model: ${{ inputs.ai-model }}
+      ai-model-deep: ${{ inputs.ai-model-deep }}
     secrets:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
